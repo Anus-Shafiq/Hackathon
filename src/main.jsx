@@ -13,7 +13,7 @@ import "./App.css";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./lib/theme";
 import ErrorBoundary from "./lib/boundary";
-import EventDetailsPage from "./pages/dyanamic";
+// import EventDetailsPage from "./pages/dyanamic";
 
 const copilotApi = import.meta.env.VITE_COPILOTKIT_KEY;
 
@@ -39,7 +39,7 @@ createRoot(document.getElementById("root")).render(
             />
             <Route path="/New-Event" element={<DashboardLayoutBranding />} />
             <Route path="/users" element={<DashboardLayoutBranding />} />
-            <Route path="/Event-Requests/:id" element={<EventDetailsPage />} />
+            {/* <Route path="/Event-Requests/:id" element={<EventDetailsPage />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </UserProvider>
