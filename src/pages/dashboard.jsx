@@ -20,8 +20,6 @@ import DashboardData from "../components/dashboarddata";
 import AllUserData from "./allUserTable";
 import SinglePageForm from "./eventForm";
 
-import "@copilotkit/react-ui/styles.css";
-
 function DemoPageContent({ pathname }) {
   return (
     <Box
@@ -78,7 +76,6 @@ DemoPageContent.propTypes = {
 
 function DashboardLayoutBranding(props) {
   const { user, loading, admin, loanData } = useUser();
-  const copilotApi = import.meta.env.VITE_COPILOTKIT_KEY;
 
   const navigate = useNavigate();
   const location = useLocation();
