@@ -98,15 +98,15 @@ export default function DataTable() {
       ...(admin && {
         renderCell: (params) => {
           return (
-            // <Link to={`/Event-Requests/${params.row.id}`}>
-            <Button
-              onClick={() => handleOpenModal(params.row)}
-              variant="extra"
-              disableRipple
-            >
-              {params.value}
-            </Button>
-            // </Link>
+            <Link to={`/Event-Requests/${params.row.id}`}>
+              <Button
+                // onClick={() => handleOpenModal(params.row)}
+                variant="extra"
+                disableRipple
+              >
+                {params.value}
+              </Button>
+            </Link>
           );
         },
       }),
@@ -137,18 +137,25 @@ export default function DataTable() {
       },
     },
     {
-      field: "person",
-      headerName: "Persons",
-      type: "number",
+      field: "eventType",
+      headerName: "Event Type",
+      type: "text",
       minWidth: 150,
     },
+
     {
       field: "location",
       headerName: "Location",
       type: "text",
       minWidth: 150,
-      editable: admin ? true : false,
     },
+    {
+      field: "person",
+      headerName: "Persons",
+      type: "number",
+      minWidth: 150,
+    },
+
     ...(admin
       ? [
           {

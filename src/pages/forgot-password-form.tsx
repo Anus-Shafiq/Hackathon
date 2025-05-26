@@ -30,7 +30,7 @@ export function ForgotPasswordForm({
     try {
       // The url which will be included in the email. This URL needs to be configured in your redirect URLs in the Supabase dashboard at https://supabase.com/dashboard/project/_/auth/url-configuration
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://loan-app-anus.vercel.app/update-password",
+        redirectTo: "/update-password",
       });
       if (error) throw error;
       setSuccess(true);
@@ -47,9 +47,9 @@ export function ForgotPasswordForm({
       {...props}
     >
       {success ? (
-        <Card>
+        <Card className="border border-purple-700 shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-teal-600">
+            <CardTitle className="text-2xl text-purple-600">
               Check Your Email
             </CardTitle>
             <CardDescription>Password reset instructions sent</CardDescription>
@@ -62,9 +62,9 @@ export function ForgotPasswordForm({
           </CardContent>
         </Card>
       ) : (
-        <Card>
+        <Card className="border border-purple-700 shadow-lg">
           <CardHeader>
-            <CardTitle className="text-2xl text-teal-600">
+            <CardTitle className="text-2xl text-purple-600">
               Reset Your Password
             </CardTitle>
             <CardDescription>
@@ -76,7 +76,7 @@ export function ForgotPasswordForm({
             <form onSubmit={handleForgotPassword}>
               <div className="flex flex-col gap-6">
                 <div className="grid gap-2">
-                  <Label htmlFor="email" className="text-teal-600">
+                  <Label htmlFor="email" className="text-purple-600">
                     Email
                   </Label>
                   <Input
@@ -91,13 +91,13 @@ export function ForgotPasswordForm({
                 {error && <p className="text-sm text-red-500">{error}</p>}
                 <Button
                   type="submit"
-                  className="w-full bg-teal-600 hover:bg-teal-700"
+                  className="w-full bg-purple-600 hover:bg-purple-700"
                   disabled={isLoading}
                 >
                   {isLoading ? "Sending..." : "Send reset email"}
                 </Button>
               </div>
-              <div className="mt-4 text-center text-sm text-teal-600">
+              <div className="mt-4 text-center text-sm text-purple-600">
                 Already have an account?{" "}
                 <Link to="/login" className="underline underline-offset-4">
                   Login

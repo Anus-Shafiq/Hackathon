@@ -50,7 +50,6 @@ export const UserProvider = ({ children }) => {
     const fetchUserData = async () => {
       if (user?.userId === authUser.id) return;
 
-      // Reset only when new user logs in
       setLoading(true);
       setUser(null);
       setLoanData([]);
