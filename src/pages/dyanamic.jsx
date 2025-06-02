@@ -7,14 +7,14 @@ const sectionStyle = {
   borderRadius: 2,
   mb: 3,
   minHeight: 150,
-  width: "100%", // full width section
+  width: "100%",
   boxSizing: "border-box",
 };
 
 const contentWrapperStyle = {
-  maxWidth: 600, // max width of content inside section
-  mx: "auto", // center horizontally
-  textAlign: "center", // center text inside
+  maxWidth: 600,
+  mx: "auto",
+  textAlign: "center",
 };
 
 export default function EventDetailsPage() {

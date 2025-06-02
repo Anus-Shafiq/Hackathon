@@ -99,11 +99,7 @@ export default function DataTable() {
         renderCell: (params) => {
           return (
             <Link to={`/Event-Requests/${params.row.id}`}>
-              <Button
-                // onClick={() => handleOpenModal(params.row)}
-                variant="extra"
-                disableRipple
-              >
+              <Button variant="extra" disableRipple>
                 {params.value}
               </Button>
             </Link>

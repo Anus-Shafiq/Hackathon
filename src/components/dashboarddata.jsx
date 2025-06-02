@@ -1,8 +1,6 @@
 import { useUser } from "@/context/store";
 import { useEffect, useState, useMemo } from "react";
-
 import { Grid, Box, Typography, Card } from "@mui/material";
-import { LineChart } from "@mui/x-charts/LineChart";
 import CardSection from "./card";
 import Divider from "@mui/material/Divider";
 import {
@@ -29,7 +27,7 @@ export default function DashboardData() {
   const [total, setTotal] = useState(0);
 
   const [statusCounts, setStatusCounts] = useState({});
-  const { user, loading, admin, loanData } = useUser();
+  const { user, loading, admin, loanData, authLoading } = useUser();
   const [monthWiseStats, setMonthWiseStats] = useState([]);
   const theme = useTheme();
 
@@ -124,7 +122,7 @@ export default function DashboardData() {
     });
   }
 
-  if (loading) {
+  if (loading || authLoading) {
     return (
       <Box
         sx={{
@@ -158,13 +156,7 @@ export default function DashboardData() {
           fontSize: { xs: "1.5rem", sm: "1.8rem", md: "2rem" },
         }}
       >
-        {admin ? (
-          "Hello Admin!"
-        ) : user ? (
-          `Hello ${user.email}!`
-        ) : (
-          <PulseLoader size={20} margin={10} />
-        )}
+        {admin ? "Hello Admin!" : user ? `Hello ${user.email}!` : "Hello"}
       </Typography>
       <Divider
         sx={{
@@ -364,8 +356,8 @@ export default function DashboardData() {
                 slotProps={{
                   bar: {
                     sx: {
-                      width: "100%", // Make each bar fill full category width
-                      rx: 4, // Rounded corners (optional)
+                      width: "100%",
+                      rx: 4,
                     },
                   },
                 }}
